@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff;
+}
+
+.filter-active {
+  position: relative;
+  transition: 0.3s;
+
+}
+
+.filter-active img {
+  padding: 1rem;
+  border-color: transparent;
+  transition: 0.3s;
+}
+
+
+
+.filter-active::before {
+  content: "";
+  position: absolute;
+  background-image: radial-gradient(50% 50% at 50% 50%, rgba(1, 107, 231, .2) 0, rgba(1, 106, 229, .4) 100%);
+  filter: blur(30px);
+  height: 100px;
+  width: 100px;
+  left: -24px;
+  top: -20px;
+  transform: rotate(30.58deg);
+  transition: 0.3s;
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  z-index: -10;
+}
+
+.filter-active::after {
+  content: "";
+  background-image: radial-gradient(50% 50% at 50% 50%, rgba(255, 0, 128, .3) 0, rgba(255, 0, 128, .2) 100%);
+  position: absolute;
+  filter: blur(35px);
+  height: 100px;
+  width: 100px;
+  right: 37px;
+  bottom: 32px;
+  transition: 0.3s;
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  z-index: -10;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+
+
+.nav.default-nav {
+  opacity: 0;
+  transition: .3s;
+}
+
+.slide-container:hover .nav.default-nav {
+  opacity: 1;
+}
+
+
+.filter-active--secondary {
+  position: relative;
+  transition: 0.3s;
+
+}
+
+.filter-active--secondary img {
+  padding: 1rem;
+  border-color: transparent;
+  transition: 0.3s;
+}
+
+
+
+.filter-active--secondary::before {
+  content: "";
+  position: absolute;
+  background-image: radial-gradient(50% 50% at 50% 50%, rgba(1, 107, 231, .2) 0, rgba(1, 106, 229, .4) 100%);
+  filter: blur(50px);
+  height: 400px;
+  width: 500px;
+  left: -9%;
+  top: 16px;
+  transform: rotate(30.58deg);
+  transition: 0.3s;
+  animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  z-index: -10;
+  border-radius: 50%;
+}
+
+.filter-active--secondary::after {
+  content: "";
+  background-image: radial-gradient(50% 50% at 50% 50%, rgba(255, 0, 128, .3) 0, rgba(255, 0, 128, .2) 100%);
+  position: absolute;
+  filter: blur(35px);
+  height: 300px;
+  width: 300px;
+  right: -100px;
+  bottom: -38px;
+  transition: 0.3s;
+  animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  z-index: -10;
+}
+
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+}
+
+.lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #FDDADA;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #FDDADA;
+}
+
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+
+  5% {
+    transform: scale(1.1);
+  }
+
+  39% {
+    transform: scale(0.85);
+  }
+
+  45% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+.custom-file-input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.custom-file-label {
+  background-color: #ffffff;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-file-input:focus+.custom-file-label {
+  outline: dotted;
+}
